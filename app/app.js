@@ -300,7 +300,7 @@ document.getElementById('missableJump').addEventListener('click', () => {
   setKind('missable');
   openId = 28;
   renderList();
-  document.getElementById('trophy-28')?.scrollIntoView({ block: 'center' });
+  document.getElementById('trophy-28')?.scrollIntoView({ block: 'start' });
 });
 tabChecklist.addEventListener('click', () => showView('list'));
 tabRoadmap.addEventListener('click', () => showView('roadmap'));
@@ -308,4 +308,10 @@ tabRoadmap.addEventListener('click', () => showView('roadmap'));
 renderRoadmap();
 renderAll();
 showView(params.get('view') === 'roadmap' ? 'roadmap' : 'list');
-if (openId) document.getElementById('trophy-' + openId)?.scrollIntoView({ block: 'center' });
+function scrollToTrophyIfOffscreen(id) {
+  const el = document.getElementById('trophy-' + id);
+  if (!el) return;
+  const rect = el.getBoundingClientRect();
+  if (rect.top < 0 || rect.top > innerHeight) el.scrollIntoView({ block: 'start' });
+}
+if (openId) scrollToTrophyIfOffscreen(openId);
