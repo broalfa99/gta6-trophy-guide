@@ -3,23 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI · All 55 PS5 Trophies</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <div class="hero-text">
+    <h1>Leonida Trophy Guide</h1>
+    <p class="subtitle">Grand Theft Auto VI — all 55 PlayStation 5 trophies: checklist, roadmap to the platinum, missable flags, and a cited guide for every trophy. Fully offline.</p>
+  </div>
+  <div class="progress-box">
+    <div class="progress-line"><span id="progressText">0 of 55 earned</span><span id="progressPct">0%</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="grade-counts" id="gradeCounts"></div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<nav class="tabs">
+  <button id="tabChecklist" type="button" class="tab active">Checklist</button>
+  <button id="tabRoadmap" type="button" class="tab">Roadmap to Platinum</button>
+</nav>
+
+<section id="missableBanner" class="missable-banner">
+  <strong>Watch out — 1 possibly missable trophy:</strong>
+  <span>Positive Mental Attitude — meditate at Jason's house in Chapter 1 (after the mission “Down to Earth”, follow Lucia to the balcony) before Chapter 1 ends. Everything else can be earned after the story.</span>
+  <button id="missableJump" type="button">Show it</button>
+</section>
+
+<section id="checklistView">
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search trophies by name or description…" aria-label="Search trophies">
+    <div class="kind-filters" id="kindFilters">
+      <button type="button" data-kind="all" class="kind active">All 55</button>
+      <button type="button" data-kind="story" class="kind">Story</button>
+      <button type="button" data-kind="missable" class="kind">Missable</button>
+      <button type="button" data-kind="collectibles" class="kind">Collectibles</button>
+      <button type="button" data-kind="activities" class="kind">Activities</button>
+      <button type="button" data-kind="crime" class="kind">Crime</button>
+    </div>
+    <label class="grade-label">Grade
+      <select id="gradeFilter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="spoiler-label"><input id="spoilerToggle" type="checkbox"> Hide story spoilers</label>
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json"></label>
+  </div>
+  <p id="countLine" class="count-line"></p>
+  <div id="list" class="trophy-list"></div>
+</section>
+
+<section id="roadmapView" class="roadmap" hidden>
+  <h2>Roadmap to the Platinum — “Vice Got a Price!”</h2>
+  <p class="roadmap-intro">Difficulty 4/10 · about 200 hours · 1 playthrough · 0 online trophies · no mission replay, no New Game+. Cheats disable trophies and saving, so keep them off. Keep a save at the start and end of each chapter (15 manual save slots).</p>
+  <div id="roadmapStages"></div>
+  <h3>Missable trophies</h3>
+  <p>Only one trophy is possibly missable: <strong>Positive Mental Attitude</strong> — the Chapter 1 balcony meditation at Jason's house (see Stage 1). Every other trophy can be earned in free-roam after the story. Story trophies (12) unlock automatically and cannot be missed.</p>
+  <h3>100% Completion — what the checklist actually asks for</h3>
+  <ul class="checklist-facts">
+    <li>Scan any 200 of 277 base-model vehicles · study any 100 of 255 animals with binoculars</li>
+    <li>300 stunts (trophy needs 250) · any 70 of 80 challenges (trophy needs 50) · any 100 optional missions</li>
+    <li>All 42 Shooting Range gold medals · all 14 Top Fun drone race locations · all 8 bank vaults</li>
+    <li>All 39 Illegal Gang Operations · all 15 Bret Target Decks · 15 of 18 meditation spots</li>
+  </ul>
+</section>
+
+<footer class="sources">
+  <h3>Sources</h3>
+  <p>Official trophy names, descriptions and grades as PlayStation publishes them (via PSNProfiles and Exophase, who agree on all 55). Every guide is written in this guide's own words; the facts behind them come from <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a>, cross-checked against <a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square — GTA 6 Trophy Guide &amp; Roadmap</a>. One guide's method is still being confirmed (Bad Luck, I Guess) and is marked as such. No Rockstar Games logo, artwork or game screenshot is used anywhere in this guide.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
